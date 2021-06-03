@@ -1,0 +1,47 @@
+html{
+	width: 500px;
+	height: 600px;
+}
+body{
+	width: 500px;
+	height: 600px;
+	font-family: monospace;
+}
+
+#answerup{
+	font-size: 30px;
+	text-align: right;
+	width: 420px;
+	height: 25px;
+}
+
+#answerdn{
+	font-size: 28px;
+	text-align: right;
+	color: #666666;
+	width: 420px;
+	height: 20px;
+}
+
+button{
+	width: 80px;
+	height: 70px;
+	margin-top: 10px;
+	margin-left: 4px;
+	font-size: 30px;
+	background-color: white;
+	border: 0;
+}
+
+#bcl, #bb, #bpr, #bd, #bml, #bmn, #bpl, #blb, #brb, #bq, #bsq{
+	color: coral;
+}
+
+#beq{
+	color: white;
+	background-color: coral;
+	border-radius: 100%;
+	width: 70px;
+	height: 70px;
+	margin-left: 6px;
+}
