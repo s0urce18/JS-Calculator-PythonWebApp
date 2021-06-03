@@ -68,13 +68,31 @@ function fbeq(){
 	document.getElementById("answerdn").style.fontSize = "30px";
 	document.getElementById("answerup").style.color = "#666666";
 	document.getElementById("answerdn").style.color = "black";
+	try{
+		answ = eval(sansw);
+		if (sansw.length == 0){
+		document.getElementById("answerdn").innerHTML = "=";
+		}
+		else if(typeof(answ) =="number"){
+			document.getElementById("answerdn").innerHTML = "="+answ;
+		}
+	}
+	catch{
+		document.getElementById("answerdn").innerHTML = "Error";
+	}
 }
 
 function fbn(n){
 	if(sqmode == false){
 		if(a == true){
-			sansw += String(n);
-			ssansw += String(n);
+			if(sansw.slice(-1) == ")"){
+				sansw += "*"+String(n);
+				ssansw += "×"+String(n);
+			}
+			else{
+				sansw += String(n);
+				ssansw += String(n);
+			}
 			document.getElementById("answerup").innerHTML = ssansw;
 			try{
 				answ = eval(sansw);
@@ -87,8 +105,14 @@ function fbn(n){
 		else if(a == false){
 			fbacl();
 			a = true;
-			sansw += String(n);
-			ssansw += String(n);
+			if(sansw.slice(-1) == ")"){
+				sansw += "*"+String(n);
+				ssansw += "×"+String(n);
+			}
+			else{
+				sansw += String(n);
+				ssansw += String(n);
+			}
 			document.getElementById("answerup").innerHTML = ssansw;
 			try{
 				answ = eval(sansw);
@@ -104,8 +128,14 @@ function fbn(n){
 			if(sansw.slice(-1) == ')'){
 				sansw = sansw.slice(0, sansw.length-1);
 			}
-			sansw += String(n)+')';
-			ssansw += String(n);
+			if(sansw.slice(-1) == ")"){
+				sansw += "*"+String(n)+')';
+				ssansw += "×"+String(n);
+			}
+			else{
+				sansw += String(n)+')';
+				ssansw += String(n);
+			}
 			document.getElementById("answerup").innerHTML = ssansw;
 			try{
 				answ = eval(sansw);
@@ -118,8 +148,54 @@ function fbn(n){
 		else if(a == false){
 			fbacl();
 			a = true;
-			sansw += String(n);
-			ssansw += String(n);
+			if(sansw.slice(-1) == ")"){
+				sansw += "*"+String(n)+')';
+				ssansw += "×"+String(n);
+			}
+			else{
+				sansw += String(n)+')';
+				ssansw += String(n);
+			}
+			document.getElementById("answerup").innerHTML = ssansw;
+			try{
+				answ = eval(sansw);
+			}
+			catch{}
+			if(typeof(answ) =="number"){
+				document.getElementById("answerdn").innerHTML = "="+answ;
+			}
+		}
+	}
+	else if(sqmode == true){
+		if(a == true){
+			if(sansw.slice(-1) == ")"){
+				sansw += "*"+String(n);
+				ssansw += "×"+String(n);
+			}
+			else{
+				sansw += String(n);
+				ssansw += String(n);
+			}
+			document.getElementById("answerup").innerHTML = ssansw;
+			try{
+				answ = eval(sansw);
+			}
+			catch{}
+			if(typeof(answ) =="number"){
+				document.getElementById("answerdn").innerHTML = "="+answ;
+			}
+		}
+		else if(a == false){
+			fbacl();
+			a = true;
+			if(sansw.slice(-1) == ")"){
+				sansw += "*"+String(n);
+				ssansw += "×"+String(n);
+			}
+			else{
+				sansw += String(n);
+				ssansw += String(n);
+			}
 			document.getElementById("answerup").innerHTML = ssansw;
 			try{
 				answ = eval(sansw);
@@ -144,6 +220,7 @@ function fbs(sign , ssign){
 		ssansw += ssign;
 		document.getElementById("answerup").innerHTML = ssansw;
 	}
+	document.getElementById("answerup").innerHTML = ssansw;
 }
 
 function fbp2(){
@@ -159,6 +236,12 @@ function fbrb(){
 	}
 	else if(sqmode == true){
 		sqmode = false;
+		sansw += '))';
+		ssansw += '))';
+		document.getElementById("answerup").innerHTML = ssansw;
+	}
+	else if(sqmode == true){
+		sqmode = false;
 		sansw += ')';
 		ssansw += ')';
 		document.getElementById("answerup").innerHTML = ssansw;
@@ -170,12 +253,31 @@ function fbrb(){
 	if(typeof(answ) =="number"){
 		document.getElementById("answerdn").innerHTML = "="+answ;
 	}
-
 }
 
-function fbsb(sign , ssign){
-	sansw += sign;
-	ssansw += ssign;
+function fblb(){
+	if(sansw.slice(-1) == ""){
+		sansw += "(";
+		ssansw += "(";
+	}
+	else if(ssansw.slice(-1) == "√"){
+		sansw += "(";
+		ssansw += "(";
+	}
+	else if(sqmode == true){
+		sqmode = false;
+		sansw = sansw.slice(0, -1);
+		sansw += ")*(";
+		ssansw += "×(";
+	}
+	else if(String(Number(sansw.slice(-1))) != "NaN" || sansw.slice(-1) == ')'){
+		sansw += "*(";
+		ssansw += "×(";
+	}
+	else{
+		sansw += "(";
+		ssansw += "(";
+	}
 	document.getElementById("answerup").innerHTML = ssansw;
 }
 
