@@ -1,9 +1,9 @@
 html{
-	width: 500px;
+	width: 600px;
 	height: 600px;
 }
 body{
-	width: 500px;
+	width: 600px;
 	height: 600px;
 	font-family: monospace;
 }
@@ -11,7 +11,7 @@ body{
 #answerup{
 	font-size: 30px;
 	text-align: right;
-	width: 420px;
+	width: 510px;
 	height: 25px;
 }
 
@@ -19,7 +19,7 @@ body{
 	font-size: 28px;
 	text-align: right;
 	color: #666666;
-	width: 420px;
+	width: 510px;
 	height: 20px;
 }
 
@@ -33,7 +33,10 @@ button{
 	border: 0;
 }
 
-#bcl, #bb, #bpr, #bd, #bml, #bmn, #bpl, #blb, #brb, #bq, #bsq{
+#bcl, #bb, #bpr, #bd, #bml,
+#bmn, #bpl, #blb, #brb, #bq,
+#bsq, #bp2, #bdr, #bcs, #bsn,
+#btg{
 	color: coral;
 }
 

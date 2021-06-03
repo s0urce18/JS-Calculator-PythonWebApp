@@ -4,6 +4,7 @@ var ssansw = "";
 var nsansw = "";
 var a = true;
 var sqmode = false;
+var drmode = true;
 
 function fbacl(){
 	sign = "";
@@ -145,6 +146,11 @@ function fbs(sign , ssign){
 	}
 }
 
+function fbp2(){
+	fbs('**', '^');
+	fbn(2);
+}
+
 function fbrb(){
 	if(sqmode == false){
 		sansw += ')';
@@ -158,12 +164,12 @@ function fbrb(){
 		document.getElementById("answerup").innerHTML = ssansw;
 	}
 	try{
-				answ = eval(sansw);
-			}
-			catch{}
-			if(typeof(answ) =="number"){
-				document.getElementById("answerdn").innerHTML = "="+answ;
-			}
+		answ = eval(sansw);
+	}
+	catch{}
+	if(typeof(answ) =="number"){
+		document.getElementById("answerdn").innerHTML = "="+answ;
+	}
 
 }
 
@@ -177,5 +183,61 @@ function fbms(){
 	sqmode = true;
 	sansw += "Math.sqrt(";
 	ssansw += "√";
+	document.getElementById("answerup").innerHTML = ssansw;
+}
+
+function fbdr(){
+	if(drmode == true){
+		drmode = false;
+		document.getElementById("bdr").innerHTML = "rad";
+		document.getElementById("bcs").innerHTML = "cos";
+		document.getElementById("bsn").innerHTML = "sin";
+		document.getElementById("btg").innerHTML = "tan";
+	}
+	else if(drmode == false){
+		drmode = true;
+		document.getElementById("bdr").innerHTML = "deg";
+		document.getElementById("bcs").innerHTML = "cos°";
+		document.getElementById("bsn").innerHTML = "sin°";
+		document.getElementById("btg").innerHTML = "tan°";
+	}
+}
+
+function fbcs(){
+	sqmode = true;
+	if(drmode == true){
+		sansw += "Math.cos(0.0174533*";
+		ssansw += "cos°";
+	}
+	else if(drmode == false){
+		sansw += "Math.cos(";
+		ssansw += "cos";
+	}
+	document.getElementById("answerup").innerHTML = ssansw;
+}
+
+function fbsn(){
+	sqmode = true;
+	if(drmode == true){
+		sansw += "Math.sin(0.0174533*";
+		ssansw += "sin°";
+	}
+	else if(drmode == false){
+		sansw += "Math.sin(";
+		ssansw += "sin";
+	}
+	document.getElementById("answerup").innerHTML = ssansw;
+}
+
+function fbtg(){
+	sqmode = true;
+	if(drmode == true){
+		sansw += "Math.tan(0.0174533*";
+		ssansw += "tan°";
+	}
+	else if(drmode == false){
+		sansw += "Math.tan(";
+		ssansw += "tan";
+	}
 	document.getElementById("answerup").innerHTML = ssansw;
 }
