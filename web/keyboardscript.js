@@ -70,7 +70,7 @@ function key(event) {
 	else if(event.code == "KeyT"){
 		fbtg();
 	}
-	else if(event.code == "KeyD"){
+	else if(event.code == "KeyD" || event.code == "KeyR"){
 		fbdr();
 	}
 	else if(event.code == "KeyI"){
@@ -92,7 +92,7 @@ function key(event) {
 		fbs('e', 'e');
 	}
 	else if(event.code == "KeyH"){
-		alert('Keys: \nKeyH - help \nEsc - AC \nDel - C \nBackspace - ⌫ \nKeyE - e \nKeyD - deg/rad \nKeyC - cos \nKeyS - sin \nKeyT - tan \nKeyP - π \nKeyI - ^2 \nKeyO - ^ \nKeyK - √');
+		alert('Keys: \nKeyH - help \nEsc - AC \nDel - C \nBackspace - ⌫ \nKeyE - e \nKeyD/KeyR - deg/rad \nKeyC - cos \nKeyS - sin \nKeyT - tan \nKeyP - π \nKeyI - ^2 \nKeyO - ^ \nKeyK - √');
 	}
 	else if(event.code == "Comma" || event.code == "Period" || event.code == "NumpadDecimal"){
 		fbs('.', ',');
