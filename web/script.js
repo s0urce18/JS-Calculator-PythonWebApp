@@ -45,6 +45,9 @@ function fbb(){
 	if(sansw.slice(-1) == ')' && sansw.slice(-1) != ssansw.slice(-1)){
 		sansw = sansw.slice(0, -2);
 	}
+	else if(sansw.slice(-1) == '*' && ssansw.slice(-1) == '^'){
+		sansw = sansw.slice(0, -2);
+	}
 	else{
 		sansw = sansw.slice(0, -1);
 	}
@@ -103,7 +106,15 @@ function fbn(n){
 			}
 		}
 		else if(a == false){
-			fbacl();
+			sign = "";
+			sansw = String(answ);
+			ssansw = String(answ);
+			document.getElementById("answerup").innerHTML = sansw;
+			document.getElementById("answerdn").innerHTML = "=";
+			document.getElementById("answerdn").style.fontSize = "28px";
+			document.getElementById("answerup").style.fontSize = "30px";
+			document.getElementById("answerdn").style.color = "#666666";
+			document.getElementById("answerup").style.color = "black";
 			a = true;
 			if(sansw.slice(-1) == ")"){
 				sansw += "*"+String(n);
@@ -146,8 +157,15 @@ function fbn(n){
 			}
 		}
 		else if(a == false){
-			fbacl();
-			a = true;
+			sign = "";
+			sansw = String(answ);
+			ssansw = String(answ);
+			document.getElementById("answerup").innerHTML = sansw;
+			document.getElementById("answerdn").innerHTML = "=";
+			document.getElementById("answerdn").style.fontSize = "28px";
+			document.getElementById("answerup").style.fontSize = "30px";
+			document.getElementById("answerdn").style.color = "#666666";
+			document.getElementById("answerup").style.color = "black";
 			if(sansw.slice(-1) == ")"){
 				sansw += "*"+String(n)+')';
 				ssansw += "×"+String(n);
@@ -186,7 +204,15 @@ function fbn(n){
 			}
 		}
 		else if(a == false){
-			fbacl();
+			sign = "";
+			sansw = String(answ);
+			ssansw = String(answ);
+			document.getElementById("answerup").innerHTML = sansw;
+			document.getElementById("answerdn").innerHTML = "=";
+			document.getElementById("answerdn").style.fontSize = "28px";
+			document.getElementById("answerup").style.fontSize = "30px";
+			document.getElementById("answerdn").style.color = "#666666";
+			document.getElementById("answerup").style.color = "black";
 			a = true;
 			if(sansw.slice(-1) == ")"){
 				sansw += "*"+String(n);
@@ -209,6 +235,17 @@ function fbn(n){
 }
 
 function fbs(sign , ssign){
+	if(a == false){
+		sansw = String(answ);
+		ssansw = String(answ);
+		document.getElementById("answerup").innerHTML = sansw;
+		document.getElementById("answerdn").innerHTML = "=";
+		document.getElementById("answerdn").style.fontSize = "28px";
+		document.getElementById("answerup").style.fontSize = "30px";
+		document.getElementById("answerdn").style.color = "#666666";
+		document.getElementById("answerup").style.color = "black";
+		a = true;
+	}
 	if(sqmode == false){
 		sansw += sign;
 		ssansw += ssign;
